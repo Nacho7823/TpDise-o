@@ -113,10 +113,10 @@ public class GestorAula {
         
 
         // Filtrar por criterio (aulas sin solapamiento o con menor solapamiento)
-        return filtrarPorCriterio(listaAulas, reserva.getDetallesReserva(), solapamientosPorDia); // devuelve DisponibilidadDTO
+        return filtrarPorSolapamiento(listaAulas, reserva.getDetallesReserva(), solapamientosPorDia); // devuelve DisponibilidadDTO
     }
     
-    private DisponibilidadDTO filtrarPorCriterio(List<AulaDTO> listaAulas, List<DetalleReservaDTO> detallesReserva, Map<LocalDate, List<DetalleReserva>> solapamientosPorDia) throws NoExisteAulaException, DAOException {
+    private DisponibilidadDTO filtrarPorSolapamiento(List<AulaDTO> listaAulas, List<DetalleReservaDTO> detallesReserva, Map<LocalDate, List<DetalleReserva>> solapamientosPorDia) throws NoExisteAulaException, DAOException {
         DisponibilidadDTO disponibilidad = new DisponibilidadDTO();
         HashMap<Integer, ReservaDTO> reservasMap = new HashMap<>();
         HashMap<Integer, AulaDTO> aulasSolapadas = new HashMap<>();
